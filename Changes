@@ -1,4 +1,7 @@
-Revision history for Perl extension Crypt::MySQL
+2004-02-24  IKEBE Tomohiro  <ikebe@edge.co.jp>
 
-0.01  Thu Apr 24 01:49:52 2003
-	- original version
+	* fixed array overrun problem.
+
+2003-04-24  IKEBE Tomohiro  <ikebe@edge.co.jp>
+
+	* original version

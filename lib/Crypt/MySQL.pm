@@ -13,7 +13,7 @@ require AutoLoader;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT_OK = qw(password);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 bootstrap Crypt::MySQL $VERSION;
 

@@ -7,3 +7,4 @@ t/00_compile.t
 t/01_password.t
 t/02_export.t
 t/03_dbi.t
+META.yml                                Module meta-data (added by MakeMaker)

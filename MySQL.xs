@@ -41,7 +41,7 @@ password(str)
 	SV *str;
 	CODE:
 	{
-	char to[16];
+	char to[17];
 	STRLEN size;
 	char *src = SvPV(str, size);
 	__crypt_mysql_make_scrambled_password(to, src);
