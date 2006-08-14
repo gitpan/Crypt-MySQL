@@ -9,11 +9,13 @@
 typedef unsigned long ulong;
 typedef unsigned char uchar;
 
-void __crypt_mysql_hash_password(ulong *result, const char *password)
+void __crypt_mysql_hash_password(ulong *result,
+  const char *password, size_t password_len)
 {
+  const char *password_end = password + password_len;
   register ulong nr=1345345333L, add=7, nr2=0x12345671L;
   ulong tmp;
-  for (; *password ; password++)
+  for (; password != password_end ; password++)
   {
     if (*password == ' ' || *password == '\t')
       continue;			/* skipp space in password */
@@ -27,10 +29,11 @@ void __crypt_mysql_hash_password(ulong *result, const char *password)
   return;
 }
 
-void __crypt_mysql_make_scrambled_password(char *to,const char *password)
+void __crypt_mysql_make_scrambled_password(char *to,
+  const char *password, size_t password_len)
 {
   ulong hash_res[2];
-  __crypt_mysql_hash_password(hash_res,password);
+  __crypt_mysql_hash_password(hash_res,password,password_len);
   sprintf(to,"%08lx%08lx",hash_res[0],hash_res[1]);
 }
 
@@ -44,7 +47,7 @@ password(str)
 	char to[17];
 	STRLEN size;
 	char *src = SvPV(str, size);
-	__crypt_mysql_make_scrambled_password(to, src);
+	__crypt_mysql_make_scrambled_password(to, src, size);
 	RETVAL = newSVpv(to, 0);
 	}
 	OUTPUT:
