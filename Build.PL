@@ -9,6 +9,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/Crypt/MySQL.pm',
     requires => {
         'Test::More' => 0,
+        'Digest::SHA1' => 0,
     },
     add_to_cleanup      => [ 'Crypt-MySQL-*' ],
 );

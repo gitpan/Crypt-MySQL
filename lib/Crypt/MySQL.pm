@@ -5,7 +5,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 use Digest::SHA1 qw(sha1 sha1_hex);
 
 BEGIN {
-    $VERSION = '0.03';
+    $VERSION = '0.04';
     if ($] > 5.006) {
         require XSLoader;
         XSLoader::load(__PACKAGE__, $VERSION);
@@ -16,7 +16,7 @@ BEGIN {
     }
     require Exporter;
     push @ISA, 'Exporter';
-    @EXPORT_OK = qw(password);
+    @EXPORT_OK = qw(password password41);
 }
 
 sub password41($) { "*".uc(sha1_hex(sha1($_[0]))); }

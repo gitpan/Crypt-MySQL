@@ -1,5 +1,6 @@
 2006-08-14  IKEBE Tomohiro  <ikebe@shebang.jp>
 
+	* added password41() to @EXPORT_OK list.
 	* support MySQL 4.1's PASSWORD() function.
         * allow the string which contain Null characters. 
         Apply the patch from Zefram.
